@@ -5,7 +5,7 @@ Some parts and ideas borrowed from rtop-vis!
 
 ## what
 Print nice graphs from bash STDIN.
-[example.png](https://postimg.org/image/4i5tzmx69/)
+[example.png](https://s32.postimg.org/5x7eocy9h/example.png)
 
 ## usage
 For example:
