@@ -5,13 +5,13 @@ Some parts and ideas borrowed from rtop-vis!
 
 ## what
 Print nice graphs from bash STDIN.
-
+[example.png](https://postimg.org/image/4i5tzmx69/]https://s32.postimg.org/ "Example")
 
 ## usage
 For example:
 
-while true ; do awk 'BEGIN{srand();print int(rand()\*(63000-2000))+2000 }' ;
-sleep 1 ; done | ./main --port 7071 --title Testing
+`while true ; do awk 'BEGIN{srand();print int(rand()\*(63000-2000))+2000 }' ;
+sleep 1 ; done | ./main --port 7071 --title Testing`
 
 ## contribute
 
