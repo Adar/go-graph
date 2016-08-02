@@ -45,9 +45,10 @@ const (
 )
 
 var (
-	allStats  *StatsRing
-	portFlag  = flag.Int("port", 8080, "The listening port.")
-	titleFlag = flag.String("title", "Title", "The graph title.")
+	allStats       *StatsRing
+	portFlag       = flag.Int("port", 8080, "The listening port.")
+	titleFlag      = flag.String("title", "Title", "The graph title.")
+	conversionFlag = flag.Float64("divide", -1, "Divide input value.")
 )
 
 func usage(code int) {
@@ -98,10 +99,15 @@ func doHost() {
 		for scanner.Scan() {
 			text := scanner.Text()
 			if ival, err := strconv.ParseFloat(text, 64); err == nil {
+				if *conversionFlag > 0 {
+					fmt.Printf("dividing from %f to %f\n", ival, (ival / *conversionFlag))
+					ival = ival / *conversionFlag
+				} else {
+					fmt.Println(ival)
+				}
 				stats := Stats{At: time.Now()}
 				stats.Value = ival
 				allStats.Add(stats)
-				fmt.Println(ival)
 			}
 		}
 	}
