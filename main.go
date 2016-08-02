@@ -98,13 +98,10 @@ func doHost() {
 		for scanner.Scan() {
 			text := scanner.Text()
 			if ival, err := strconv.ParseFloat(text, 64); err == nil {
-				ival = ival / 1024 / 1024
 				stats := Stats{At: time.Now()}
-				if ival > 1 {
-					stats.Value = ival
-					allStats.Add(stats)
-					fmt.Println(ival)
-				}
+				stats.Value = ival
+				allStats.Add(stats)
+				fmt.Println(ival)
 			}
 		}
 	}
